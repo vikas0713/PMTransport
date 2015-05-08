@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block form %}
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">ADD CONTACTS</h4>
+      </div>
+      <div class="modal-body">
+        {% load crispy_forms_tags %}
+          <form action="/add_contacts/" method="post">
+          {%csrf_token%}
+              <div class='container-fluid'>
+              {% crispy form %}
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div clas='container'>
+    <h2 class='text-center'>Address Book <h5 class='pull-right'>
+    <button  class="btn btn-default" data-toggle="modal" data-target="#myModal1">
+  Add New contact
+</button></h5></h2>
+    
+    
+  
+ {% for i in data %}
+    <div class='col-md-3'>
+     <h3><i class='fa fa-3x fa-book'></i>
+      </h3><h3><a href='/contacts/{{i.id}}'>{{ i.customer}}</a></h3>
+    </div>
+ {% endfor %}
+</div>
+<script src=/static/js/jquery.js></script>
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal1').modal('show');
+    });
+</script>
+
+{% endblock %}

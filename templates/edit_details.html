@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<h1 class='text-center'><strong>{{ data.customer| upper }}</strong></h1>
+<div class='contacts'>
+ <h3 class='text-center'>Address: {{ data.address}}<a href='#'>Edit</a></h3>
+ <h3 class='text-center'>City: {{ data.city}}<a href='#'>Edit</a></h3>
+ <h3 class='text-center'>State:{{ data.state}}<a href='#'>Edit</a></h3>
+ <h3 class='text-center'>Contact number: {{data.contact}}<a href='#'>Edit</a></h3>
+ <h3 class='text-center'>Email-address: {{ data.email}}<a href='#'>Edit</a></h3>
+</div>
+
+{% endblock %}

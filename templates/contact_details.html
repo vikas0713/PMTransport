@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel"><strong>{{ data.customer| upper}}</strong></h4>
+      </div>
+      <div class="modal-body">
+          <div class="container">
+        <div class="row-fluid">
+            <div class='col-md-3'>
+             Customer Name:{{ data.customer }}
+            </div>
+            <div class='col-md-3'>
+             Address: {{ data.address}}
+            </div>
+            <div class='col-md-3'>
+             City : {{ data.city}}
+            </div>
+            <div class='col-md-3'>
+            State : {{ data.state }}
+            </div>
+          </div>
+          <div class="row-fluid">
+              <div class='col-md-6'>
+                  <i class='fa fa-3x fa-phone'></i>: {{ data.contact}}
+              </div>
+              <div class='col-md-6'>
+                  <i class='fa fa-3x fa-envelope-o'></i>: {{ data.email }}
+              </div>
+      </div>
+              <a class="btn btn-danger" href='/edit_contact/{{data.id}}'>Edit Contacts</a>
+              </div>
+    </div>
+  </div>
+</div>
+
+<script src=/static/js/jquery.js></script>
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal2').modal('show');
+    });
+</script>
+{% endblock %}

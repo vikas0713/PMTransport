@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block body %}
+<table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Details</th>
+                                        <th>Load#</th>
+                                        <th>Status</th>
+                                        <th>Customer</th>
+                                        <th>Origin</th>
+                                        <th>Destination</th>
+                                        <th>USD($)</th>
+                                        <th>Delivery Date</th>
+                                        <th>Driver</th>
+                                        <th>Kms</th>
+                                        <th>Vehicle Type</th>
+                                        <th>Equipment Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                             
+                                    <tr>
+                                         <td>
+                                            <a href="/load_get/{{i.id}}" data-toggle="tooltip" title="Click for details">
+                                                <i class="fa fa-info-circle"></i></a></td>
+                                         <td>{{i.load}}</td>
+                                         <td>{{i.status}}</td>
+                                        <td><a href="#" data-toggle="tooltip" title="{{i.customer}}">
+                                            {{i.customer}} 
+                                            </a>
+                                        </td>
+                                        <td>{{ i.origin }}</td>
+                                        <td>{{ i.destination }}</td>
+                                        <td>${{ i.usd }}</td>
+                                        <td>{{ i.del_date }}</td>
+                                        <td>{{ i.driver_name }}</td>
+                                        <td>{{ i.total_km }}</td>
+                                        <td>{{ i.vehicle_type }}</td>
+                                        <td>{{ i.equipment_type }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+
+{%  endblock %ss}
